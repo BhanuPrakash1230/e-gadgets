@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h1 class="text-info text-center mt-3">OTP Verification</h1>
+  <div class="row mt-3">
+      <div class="col-sm-4 "></div>
+      <div class="col-sm-4 jumbotron bg-dark text-white">
+        <h6 class="text-center text-light">Your OTP has been already sent to your Mobile</h6> <br/>
+        <form #OTP="ngForm" (ngSubmit)=verifyOTP(OTP.value)>
+          <div class="form-group">
+            <label for="OTP">Enter the OTP you've recieved:</label>
+            <input type="number" id="OTP" name="OTP" class="form-control" ngModel>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-success">Verify OTP</button>
+          </div>
+         </form>
+      </div>
+      <div class="col-sm-4 "></div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="container">
+        
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 jumbotron bg-dark text-white mt-3">
+                <h1 class="text-center">
+                    Create Account
+                </h1>
+                <form #ref="ngForm" (ngSubmit)="onSubmit(ref.value)">
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            <label title="FirstName" for="firstname">First Name</label>
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="text" id="firstname" name="firstName" class="form-control" placeholder="Enter First Name..." ngModel>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="text" id="lastname" name="lastName" class="form-control" placeholder="Enter Last Name..." ngModel>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            <label title="Email" for="email">Enter Email</label>
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Enter Email..." ngModel>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            <label title="Mobile" for="mobile">Enter Mobile No.</label>
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Enter Mobile..." ngModel>
+                        </div>
+                    </div> 
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            <label for="username">Choose UserName</label>
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="text" id="username" name="userName" class="form-control"  placeholder="Choose UserName..." ngModel (blur)=onBlur($event.target.value)>
+                        </div> 
+                    </div>
+                    <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-8">{{checkUserName}}</div> 
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center"style="margin: auto">
+                            <label for="password">Choose Password</label>
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="choose Password..." ngModel>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">{{checkPassword}}</div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 text-center"style="margin: auto">
+                            <label for="">Gender:</label>
+                        </div>
+                        <div class="col-sm-8 form-group mt-3" style="margin: auto">
+                            <table>
+                                <div class="form-check " *ngFor="let gender of genders">
+                                    <tr>
+                                        <td><label class="form-check-label">
+                                                <input type="radio" name=gender [value]=gender class="form-check-input" ngModel>{{gender}}
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            Date of Birth:
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="date" name="dateOfBirth" id="" class="form-control" ngModel>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-4 form-group text-center" style="margin: auto">
+                            Upload Image:
+                        </div>
+                        <div class="col-sm-8 form-group" style="margin: auto">
+                            <input type="file" name="profilePic" id="" class="form-control" ngModel>
+                        </div>
+                    </div>                    
+
+                    <div class="row">
+                        <div class="col-sm-12 mt-3 text-center" >
+                            <button type="submit" class="btn btn-warning pt-1">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 mt-3 text-right" >
+                            Existing user?<a routerLink="/headerfooter/login">SignIn</a>
+                        </div>
+                        </div>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+       
+      
+</div>

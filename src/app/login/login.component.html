@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-4 "></div>
+      
+      <div class="col-sm-4 mt-5">
+          <div class="jumbotron bg-dark text-white">
+            <h1 class="text-center">Login</h1>
+              <h5 class=" alert-danger text-center">{{invalidLogin}}</h5>
+              <form #ref="ngForm" (ngSubmit)="onSubmit(ref.value)">
+                <table class="mt-5 text-center">
+                  <tr>
+                    <td *ngFor="let member of loginMembers">
+                      <div class="form-check" >
+                          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name=member [value]=member ngModel>{{member}}
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="form-group mt-2">
+                  <label for="username" class="text-left">UserName:</label>
+                  <input type="text" name="userName" id="username" class="form-control" ngModel>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="text-left">Password:</label>
+                  <input type="password" name="password" id="password" class="form-control" ngModel>
+                </div>
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-warning">login</button>
+                </div>
+                </form>
+                    <div class="text-right text-white">
+                        <a routerLink="/headerfooter/generateOTP" class="text-white">Forgot Password?</a>
+                    </div>
+            
+              <div class="text-center">
+                  New User?<a routerLink="/headerfooter/registration"> Sign up</a>
+              </div>
+              
+          </div>
+      </div>
+      <div class="col-sm-4 "></div>
+  </div>
+</div>

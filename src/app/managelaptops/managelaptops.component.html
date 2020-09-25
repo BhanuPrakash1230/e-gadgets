@@ -1,0 +1,273 @@
+<!--Management of Laptops-->
+<div class="row">
+    <div class="col-sm-6  h2"><i class="fa fa-laptop"></i> Laptops</div>
+    <div class="col-sm-6 text-right">
+      <button class="btn btn-success" data-target="#addLaptop" data-toggle="modal">Add Products</button>
+      <div class="modal fade" id="addLaptop">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content container bg-dark text-white">
+            <div class="modal-header mt-3">
+              <button class="close text-white" data-dismiss="modal">X</button>
+            </div><hr/>
+            <div class="modal-body mt-3">
+              <form #laptop="ngForm">
+                <div class="row">
+                  <div class="col-sm-4 form-group text-center">
+                    <label title="Name" for="laptopName">Name</label>
+                  </div>
+                  <div class="col-sm-8 form-group">
+                    <input type="text" id="laptopName" name="name" class="form-control" placeholder="Name of Laptop..." ngModel>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group text-center">
+                      <label title="Name" for="laptopProductID">Product Id</label>
+                    </div>
+                    <div class="col-sm-8 form-group">
+                      <input type="text" id="laptopProductID" name="productID" class="form-control" placeholder="product ID..." ngModel>
+                    </div>
+                  </div>    
+                <div class="row">  
+                  <div class="col-sm-4 form-group text-center">
+                    <label for="laptopPrice">Price</label>
+                  </div>
+                  <div class="col-sm-8 form-group" >
+                    <input type="number" id="laptopPrice" name="price" class="form-control" placeholder="Price of Laptop..." ngModel>
+                  </div>
+                </div>
+                <div class="row">  
+                    <div class="col-sm-4 form-group text-center">
+                      <label for="laptopImage">image</label>
+                    </div>
+                    <div class="col-sm-8 form-group" >
+                      <input type="text" id="laptopImage" name="image" class="form-control" placeholder="imageURL" ngModel>
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group text-center">
+                    <label title="RAM" for="laptopRAM">RAM</label>
+                  </div>
+                  <div class="col-sm-8 form-group">
+                    <input type="text" id="laptopRAM" name="RAM" class="form-control" placeholder="RAM..."ngModel>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group text-center">
+                    <label title="ROM" for="laptopHardDisk">Hard Disk</label>
+                  </div>
+                  <div class="col-sm-8 form-group">
+                    <input type="text" id="laptopHardDisk" name="HardDisk" class="form-control" placeholder="Hard Disk (HDD or SSD)..." ngModel>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group text-center">
+                      <label title="Camera" for="laptopProcessor">Processor</label>
+                    </div>
+                    <div class="col-sm-8 form-group">
+                      <input type="text" id="laptopProcessor" name="processor" class="form-control" placeholder="Processor..." ngModel>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group text-center">
+                    <label title="Camera" for="laptopOS">InBuilt OS</label>
+                  </div>
+                  <div class="col-sm-8 form-group">
+                    <input type="text" id="laptopOS" name="OS" class="form-control" placeholder="OS..." ngModel>
+                  </div>
+              </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group text-center">
+                      <label title="inch" for="LaptopScreenSize">Screen Size</label>
+                    </div>
+                    <div class="col-sm-8 form-group">
+                      <input type="text" id="LaptopScreenSize" name="screenSize" class="form-control" placeholder="inch(resolution)..." ngModel>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group text-center">
+                      <label title="processor" for="laptopCharger">Charger</label>
+                    </div>
+                    <div class="col-sm-8 form-group">
+                      <input type="text" id="laptopCharger" name="charger" class="form-control" placeholder="Charger..." ngModel>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group text-center">
+                      <label title="battery" for="laptopGraphicProcessor">Graphic Card</label>
+                    </div>
+                    <div class="col-sm-8 form-group">
+                      <input type="text" id="laptopGraphicProcessor" name="graphicCard" class="form-control" placeholder="Graphic..." ngModel>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 form-group text-center">
+                      <label title="box" for="laptopBox">In the Box</label>
+                    </div>
+                    <div class="col-sm-8 form-group">
+                      <input type="text" id="laptopBox" name="box" class="form-control" placeholder="contents in package..." ngModel>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 mt-1 mb-5 text-center" >
+                    <button type="submit" class="btn btn-warning pt-1" (click)="onAddLaptop(laptop.value)" data-dismiss="modal">
+                        Add
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="mt-1">
+      <table class="table text-center">
+          <thead class="thead-dark">
+            <th>S.No</th>
+            <th>Product_ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Memory</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </thead>
+          <tr *ngFor="let laptop of laptopDetails;let ind=index">
+            <td>{{ind+1}}</td>
+            <td>{{laptop.productID}}</td>
+            <td>{{laptop.name}}</td>
+            <td>{{laptop.price | currency:"INR"}}</td>
+            <td>{{laptop.RAM}} RAM | {{laptop.HardDisk}} HardDisk</td>
+            <td>
+              <button class="btn" data-toggle="modal" [attr.data-target]="'#'+laptop.productID">
+                <i class="fa fa-pencil-square-o fa-lg"></i>
+              </button>
+              <div class="modal fade" [id]=laptop.productID>
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                      <div class="close text-white" data-dismiss="modal">X</div>
+                    </div>
+                    <div class="modal-body mt-3">
+                      <form #editLaptop="ngForm">
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="Name" [for]=laptop.name>Name</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.name name="name" class="form-control" [(ngModel)]=laptop.name>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="Name" [for]=laptop.productID>Product Id</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.productID name="productID" class="form-control" [(ngModel)]=laptop.productID readonly>
+                            </div>
+                        </div>
+                        <div class="row">  
+                            <div class="col-sm-4 form-group text-center">
+                              <label [for]=laptop.price>Price</label>
+                            </div>
+                            <div class="col-sm-8 form-group" >
+                              <input type="number" [id]=laptop.price name="price" class="form-control"[(ngModel)]=laptop.price>
+                            </div>
+                        </div> 
+                        <div class="row">  
+                            <div class="col-sm-4 form-group text-center">
+                              <label [for]=laptop.image>image</label>
+                            </div>
+                            <div class="col-sm-8 form-group" >
+                              <input type="text" [id]=laptop.image name="image" class="form-control" [(ngModel)]=laptop.image>
+                            </div>
+                        </div>   
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="RAM" [for]=laptop.RAM>RAM</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.RAM name="RAM" class="form-control" [(ngModel)]=laptop.RAM>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="ROM" [for]=laptop.HardDisk>Hard Disk</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.HardDisk name="HardDisk" class="form-control" [(ngModel)]=laptop.HardDisk>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="Camera" [for]=laptop.processor>Processor</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.processor name="processor" class="form-control" [(ngModel)]=laptop.processor>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="Camera" [for]=laptop.OS>InBuilt OS</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.OS name="OS" class="form-control" [(ngModel)]=laptop.OS>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="inch" [for]=laptop.screenSize>Screen Size</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.screenSize name="screenSize" class="form-control" [(ngModel)]=laptop.screenSize>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="processor" [for]=laptop.charger>Charger</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.charger name="charger" class="form-control" [(ngModel)]=laptop.charger>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="battery" [for]=laptop.graphicCard>Grapic Card</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.graphicCard name="graphicCard" class="form-control" [(ngModel)]=laptop.graphicCard>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 form-group text-center">
+                              <label title="box" [for]=laptop.box>In the Box</label>
+                            </div>
+                            <div class="col-sm-8 form-group">
+                              <input type="text" [id]=laptop.box name="box" class="form-control" [(ngModel)]=laptop.box>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 mt-1 mb-5 text-center" >
+                              <button type="submit" class="btn btn-warning pt-1" (click)="onEditLaptop(editLaptop.value)" data-dismiss="modal">
+                                  Save Changes
+                              </button>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              
+            </td>
+            <td><button class="btn btn-danger" (click)="onDeleteLaptop(laptop)"><i class="fa fa-trash-o fa-lg"></i></button></td>
+          </tr>
+        </table>
+  </div>

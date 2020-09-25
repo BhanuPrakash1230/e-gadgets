@@ -1,0 +1,92 @@
+
+<h1 class="text-center text-info mb-5">...Smart Wears...</h1><hr/>
+<div class="row" *ngFor="let watch of watchDetails">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-11">
+      <div class="row text-center">
+          <div class="col-sm-12 mt-2">
+              <h4 style="color:brown">{{watch.name}}</h4>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 text-center">
+            <img [src]=watch.image alt="" class="image-fluid" width="150em" height="250em">
+        </div>
+        <div class="col-sm-4">
+            <ul class="h6 mt-2 text-left">
+                <li>for {{watch.suitsFor}}</li>
+                <li>{{watch.display}} Display</li>
+                <li>Touch Screen : {{watch.touch}}</li>
+            </ul>
+            <div class="text-center ml-5">
+                <a class="btn btn-sm" data-toggle="modal" [attr.href]="'#'+watch.productID"><h5> more...</h5></a>
+                <div class="modal fade" [id]=watch.productID>
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content container bg-secondary text-dark">
+                            <div class="modal-header text-center">
+                                <div class="h6 text-white">{{watch.name}}</div>
+                                <button class="close btn text-white" data-dismiss="modal">X</button>
+                            </div>
+                            <div class="=modal-body bg-white">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <img [src]=watch.image alt="" class="image-fluid mt-5" width="160em" height="250em">
+                                  </div>
+                                </div>
+                                <div class="h4 mt-2 ml-2 text-left text-info"> Price : {{watch.price | currency:"INR"}}</div>
+                                <div class="row">
+                                    <div class="col-sm-12 text-left">
+                                          <table class="table table-striped h6 mt-2 bg-light">
+                                            <tr>
+                                              <td>Suitable for</td>
+                                              <td>{{watch.suitsFor}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Clock Type</td>
+                                                <td>{{watch.clockType}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Water Resistant</td>
+                                                <td>{{watch.waterResistant}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Display</td>
+                                                <td>{{watch.display}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Battery</td>
+                                                <td>{{watch.battery}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Touch</td>
+                                                <td>{{watch.touch}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>functions</td>
+                                                <td>{{watch.functions}}</td>
+                                            </tr>
+                                            
+                                          </table>
+                                          <p class='h5 ml-2'>In the Package:-</p>
+                                          <p class="h6 ml-2">{{watch.box}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer mb-3">
+                                <button class="btn btn-warning" (click)=cart(watch) data-dismiss="modal">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mt-2 h3 text-info text-center">
+            <div>{{watch.price | currency:"INR"}}</div> 
+             <div class="btn-group text-left mt-3">
+                 <button class="btn btn-warning" (click)=cart(watch)>Add to Cart</button>  
+             </div>
+         </div>
+      </div><hr/>
+  </div>
+</div>

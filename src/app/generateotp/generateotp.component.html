@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h1 class="text-info text-center mt-3">OTP Generation</h1>
+  <div class="row mt-3">
+      <div class="col-sm-4 "></div>
+      <div class="col-sm-4 jumbotron bg-dark text-white">
+        <form #forgotpassword="ngForm" (ngSubmit)=onForgotPassword(forgotpassword.value)>
+          <div class="form-group">
+            <label for="user">Enter your username</label>
+            <input type="text" name="userName" id="user" class="form-control" ngModel>
+            <h6 class="text-danger">{{validUser}}</h6>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-success">Generate OTP</button>
+          </div>
+         </form>
+      </div>
+      <div class="col-sm-4 "></div>
+  </div>
+</div>

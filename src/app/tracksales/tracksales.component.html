@@ -1,0 +1,18 @@
+<div class="container text-center mt-3">
+  <table class="table table-responsive">
+    <thead class="thead-dark">
+      <th>Sno</th>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Purchased By</th>
+    </thead>
+    <tr *ngFor="let product of purchasedData;let ind=index" class="h6">
+      <td>{{ind+1}}</td>
+      <td>{{product.productID}}</td>
+      <td class="bg-light">{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td class="bg-light">{{product.userName}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,87 @@
+
+<h1 class="text-center text-info mt-5">...Headsets...</h1>
+<div class="row" *ngFor="let headset of headsetDetails">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-11">
+        <div class="row text-center">
+            <div class="col-sm-12 mt-2">
+              <h4 style="color:brown">{{headset.name}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 text-center">
+                <img [src]=headset.image alt="" class="image-fluid" width="150em" height="135em">
+            </div>
+            <div class="col-sm-4">
+                <ul class="h6 mt-2 text-left">
+                    <li>{{headset.headsetType}} </li>
+                    <li>{{headset.connectivity}} Display</li>
+                    <li>Bluetooth : {{headset.bluetooth}}</li>
+                </ul>
+                <div class="text-center ml-5">
+                    <a class="btn btn-sm" data-toggle="modal" [attr.href]="'#'+headset.productID"><h5> more...</h5></a>
+                    <div class="modal fade" [id]=headset.productID>
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content container bg-secondary text-dark">
+                                <div class="modal-header text-center">
+                                    <div class="h5 text-white text-left">{{headset.name}}</div>
+                                    <button class="close btn  text-white" data-dismiss="modal">X</button>
+                                </div>
+                                <div class="=modal-body bg-white">
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                        <img [src]=headset.image alt="" class="image-fluid mt-5" width="210em" height="250em">
+                                      </div>
+                                  </div>
+                                  <div class="h4 mt-2 ml-2 text-left text-info"> Price : {{headset.price | currency:"INR"}}</div>
+                                  <div class="row">
+                                    <div class="col-sm-12 text-left">
+                                            <table class="table table-striped h6 mt-2 bg-light">
+                                              <tr>
+                                                <td>Headset Type</td>
+                                                <td>{{headset.headsetType}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Connectivity</td>
+                                                  <td>{{headset.connectivity}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Bluetooth</td>
+                                                  <td>{{headset.bluetooth}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Connector Type</td>
+                                                  <td>{{headset.port}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Microphone</td>
+                                                  <td>{{headset.microphone}}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Other Features</td>
+                                                  <td>{{headset.features}}</td>
+                                              </tr>
+                                            </table>
+                                            <p class='h5 ml-2'>In the Package:-</p>
+                                            <p class="h6 ml-2">{{headset.box}}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="modal-footer mb-3">
+                                    <button class="btn btn-warning" (click)=cart(headset) data-dismiss="modal">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-2 h3 text-info text-center">
+                <div>{{headset.price | currency:"INR"}}</div> 
+                 <div class="btn-group text-left mt-3">
+                     <button class="btn btn-warning" (click)=cart(headset)>Add to Cart</button>  
+                 </div>
+             </div>
+          </div><hr/>
+      </div>
+</div>

@@ -1,0 +1,88 @@
+<h1 class="text-center text-info mb-3">...Mobiles...</h1><hr/>
+<div class="row" *ngFor="let mobile of mobileDetails">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-11">
+    <div class="row text-center">
+      <div class="col-sm-12 mt-2" style="color: brown">
+          <h4>{{mobile.name}}</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2 text-center">
+        <img [src]=mobile.image alt="" class="img-fluid" width="100em" height="200em">
+      </div>
+      <div class="col-sm-4">
+        <ul class="h6 mt-2 text-left">
+          <li>{{mobile.RAM}} RAM | {{ mobile.ROM}} ROM</li>
+          <li>{{mobile.inch}}</li>
+          <li>{{mobile.Camera}}</li>
+        </ul>
+        <div class="text-center ml-5">
+            <a  class="btn btn-sm" data-toggle="modal" [attr.href]="'#'+mobile.productID"><h5> more...</h5></a>
+            <div class="modal fade" [id]=mobile.productID>
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content container bg-secondary text-dark">
+                    <div class="modal-header text-center">
+                      <div class="h5 text-white">{{mobile.name}}</div>
+                      <button class="close btn text-white" data-dismiss="modal">X</button>
+                    </div>
+                    <div class="modal-body bg-white">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <img [src]=mobile.image alt="" class="img-fluid mt-5" width="150em" height="300em">
+                        </div>
+                      </div>
+                      <div class="h4 mt-2 ml-2 text-left text-info"> Price : {{mobile.price | currency:"INR"}}</div>
+                      <div class="row">
+                        <div class="col-sm-12 text-left">
+                          <table class="table table-striped h6 mt-2 bg-light">
+                            <tr>
+                              <td>RAM</td>
+                              <td class="text-left">{{mobile.RAM}}</td>
+                            </tr>
+                            <tr>
+                                <td>Internal Memory</td>
+                                <td>{{mobile.ROM}}</td>
+                            </tr>
+                            <tr>
+                                <td>Camera</td>
+                                <td>{{mobile.Camera}}</td>
+                            </tr>
+                            <tr>
+                                <td>inch(resolution)</td>
+                                <td>{{mobile.inch}}</td>
+                            </tr>
+                            <tr>
+                                <td>Processor</td>
+                                <td>{{mobile.processor}}</td>
+                            </tr>
+                            <tr>
+                                <td>battery</td>
+                                <td>{{mobile.battery}}</td>
+                            </tr>
+                          </table>
+                          <p class='h5 ml-2'>In the Package:-</p>
+                          <p class="h6 ml-2">{{mobile.box}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer mb-3">
+                        <button class="btn btn-warning" (click)=cart(mobile) data-dismiss="modal">Add to Cart</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="col-sm-4 mt-2 h3 text-info text-center">
+         <div>{{mobile.price | currency:"INR"}}</div> 
+          <div class="btn-group text-left mt-3">
+              <button class="btn btn-warning" (click)=cart(mobile)>Add to Cart</button>  
+          </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div><hr/>
+  </div>
+</div>

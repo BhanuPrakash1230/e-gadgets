@@ -1,0 +1,153 @@
+<h1 class="text-center text-info mb-3">...Laptops...</h1><hr/>
+<div class="row" *ngFor="let laptop of laptopDetails">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-11">
+      <div class="row text-center">
+          <div class="col-sm-12 mt-2">
+              <h4 style="color:brown">{{laptop.name}}</h4>
+          </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 text-center">
+            <img [src]=laptop.image alt="" class="image-fluid" width="200em" height="150em">
+        </div>
+
+        <div class="col-sm-4">
+          <ul class="h6 mt-2 text-left">
+            <li>{{laptop.RAM}} RAM| {{laptop.HardDisk}} Harddisk</li>
+            <li>{{laptop.screenSize}}</li>
+            <li>{{laptop.processor}}</li>
+          </ul>
+          <div class="text-center ml-5">
+              <a class="btn btn-sm" data-toggle="modal" [attr.href]="'#'+laptop.productID"><h5> more...</h5></a>
+              <div class="modal fade" [id]=laptop.productID>
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content container bg-secondary text-dark">
+                          <div class="modal-header text-center">
+                              <div class="h5 text-white ">{{laptop.name}}</div>
+                              <button class="close btn text-white" data-dismiss="modal">X</button>
+                          </div>
+                          <div class="=modal-body bg-white">
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                    <img [src]=laptop.image alt="" class="image-fluid mt-5" width="250em" height="150em">
+                                  </div>
+                              </div>
+                              <div class="h4 mt-2 ml-2 text-left text-info"> Price : {{laptop.price | currency:"INR"}}</div>
+                              <div class="row">
+                                  <div class="col-sm-12 text-left">
+                                      <table class="table table-striped h6 mt-2 bg-light">
+                                        <tr>
+                                          <td>RAM</td>
+                                          <td class="text-left">{{laptop.RAM}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hard Disk</td>
+                                            <td>{{laptop.HardDisk}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Processor</td>
+                                            <td>{{laptop.processor}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>inch(resolution)</td>
+                                            <td>{{laptop.screenSize}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>In-built OS</td>
+                                            <td>{{laptop.OS}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Graphic Card</td>
+                                            <td>{{laptop.graphicCard}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>charger</td>
+                                            <td>{{laptop.charger}}</td>
+                                        </tr>
+                                      </table>
+                                      <p class='h5 ml-2'>In the Package:-</p>
+                                      <p class="h6 ml-2">{{laptop.box}}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="modal-footer mb-3">
+                              <button class="btn btn-warning" (click)=cart(laptop) data-dismiss="modal">Add to Cart</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mt-2 h3 text-info text-center">
+            <div>{{laptop.price | currency:"INR"}}</div> 
+             <div class="btn-group text-left mt-3">
+                 <button class="btn btn-warning" (click)=cart(laptop)>Add to Cart</button>  
+             </div>
+         </div>
+      </div><hr/>
+  </div>
+</div>
+<!--
+  
+  <button class="btn btn-primary ml-2" data-toggle="modal" [attr.data-target]="'#'+laptop.productID">more...</button>
+  <div class="modal fade" [id]=laptop.productID>
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content container bg-secondary text-dark">
+                    <div class="modal-header text-center">
+                      <div class="h5 text-white ">{{laptop.name}}</div>
+                      <button class="close btn text-white" data-dismiss="modal">X</button>
+                    </div>
+                    <div class="=modal-body bg-white">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <img [src]=laptop.image alt="" class="image-fluid mt-5" width="250em" height="150em">
+                        </div>
+                      </div>
+                      <div class="h4 mt-2 ml-2 text-left text-info"> Price : {{laptop.price | currency:"INR"}}</div>
+                      <div class="row">
+                        <div class="col-sm-12 text-left">
+                          <table class="table table-striped h6 mt-2 bg-light">
+                            <tr>
+                              <td>RAM</td>
+                              <td class="text-left">{{laptop.RAM}}</td>
+                            </tr>
+                            <tr>
+                                <td>Hard Disk</td>
+                                <td>{{laptop.HardDisk}}</td>
+                            </tr>
+                            <tr>
+                                <td>Processor</td>
+                                <td>{{laptop.processor}}</td>
+                            </tr>
+                            <tr>
+                                <td>inch(resolution)</td>
+                                <td>{{laptop.screenSize}}</td>
+                            </tr>
+                            <tr>
+                                <td>In-built OS</td>
+                                <td>{{laptop.OS}}</td>
+                            </tr>
+                            <tr>
+                                <td>Graphic Card</td>
+                                <td>{{laptop.graphicCard}}</td>
+                            </tr>
+                            <tr>
+                                <td>charger</td>
+                                <td>{{laptop.charger}}</td>
+                            </tr>
+                          </table>
+                          <p class='h5 ml-2'>In the Package:-</p>
+                          <p class="h6 ml-2">{{laptop.box}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer mb-3">
+                        <button class="btn btn-warning" (click)=cart(laptop) data-dismiss="modal">Add to Cart</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+-->
